@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="VisualAll.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
+    xmlns:local="clr-namespace:VisualAll"
+    xmlns:apps="clr-namespace:VisualAll.Apps"
+    
+    >
+
+    <Shell.FlyoutHeader >
+        <Grid Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Image Grid.RowSpan="5" Source="background_widescreen" 
+                   Opacity="0.75"
+                   Aspect="AspectFill"/>
+            
+            <VerticalStackLayout Grid.Row="0" Padding="8">
+                <HorizontalStackLayout Spacing="8">
+                    <Image WidthRequest="45" Source="splash"/>
+                    <Label Text="Visual All"
+                           Style="{DynamicResource ImageLabel}"
+                           FontSize="Title"
+                           VerticalOptions="Center"/>
+                    <Label Text="V.1.0.0.0"
+                           TextColor="LightGray"
+                           FontSize="Caption"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Padding="2,5,2,5">
+                <VerticalStackLayout.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource ImageLabel}">
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                        <Setter Property="FontSize" Value="Caption"/>
+                        <Setter Property="TextColor" Value="LightGray"/>
+                    </Style>
+                </VerticalStackLayout.Resources>
+
+                <Label Text="Visual All V.1.0.0.0" />
+                <Label Text="Powered by MAUI on .NET 8." />
+                <Label Text="UI Framework: MAUI, ☢️ Uranium" />
+                <Label Text="Coptyright © 2024 LGF-Studio. All rights reserved."/>
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryContainer}, Dark={StaticResource SecondaryContainerDark}}" Padding="10">
+            <VerticalStackLayout>
+                <VerticalStackLayout.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource ImageLabel}">
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                        <Setter Property="FontSize" Value="Header"/>
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource OnSecondary}, Dark={StaticResource OnSecondaryDark}}"/>
+                    </Style>
+                </VerticalStackLayout.Resources>
+
+                <Label x:Name="DateTimeNowLabel" Text="Mon 9/1/2024 - 00:00:00 AM" />
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate apps:HomePage}"
+            Route="HomePage">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialSharp" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" Glyph="{x:Static m:MaterialSharp.Home}" />
+            </ShellContent.Icon>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Info"
+            ContentTemplate="{DataTemplate apps:InfoPage}"
+            Route="InfoPage">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="MaterialSharp" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" Glyph="{x:Static m:MaterialSharp.Info}" />
+            </ShellContent.Icon>
+        </ShellContent>
+    </FlyoutItem>
+
+</Shell>

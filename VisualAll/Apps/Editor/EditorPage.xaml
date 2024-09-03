@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uranium:UraniumContentPage x:Class="VisualAll.Apps.Editor.EditorPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uranium="clr-namespace:UraniumUI.Pages;assembly=UraniumUI"
+             xmlns:local="clr-namespace:VisualAll.Apps.Editor"
+             Title="Editor"
+             >
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Editor 
+            AutoSize="Disabled"
+            HorizontalOptions="Fill" VerticalOptions="Fill"/>
+    </Grid>
+</uranium:UraniumContentPage>
